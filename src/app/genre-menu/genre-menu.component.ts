@@ -1,28 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Genre } from './genre.model';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-genre-menu',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './genre-menu.component.html',
-  styleUrl: './genre-menu.component.css'
+  styleUrls: ['./genre-menu.component.css']
 })
-export class GenreMenuComponent {
+export class GenreMenuComponent implements OnInit {
   genres: any[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {};
 
   ngOnInit() {
-    this.apiService.getGenres().subscribe(
-      (response) => {
-        this.genres = response.genres;
-      },
-      (error) => {
-        console.error('Error fetching genres: ', error);
-      }
-    );
-  }
+    console.log("Initialization of GenreMenuComponent");
 
+    this.apiService.getGenres().subscribe({
+      next: (response) => {
+        this.genres = response.genres;
+        console.log('Genres: ', this.genres);
+      },
+      error: (error) => {
+        console.error('Error fetching genres: ', error);
+      },
+      complete: () => {
+        console.log('Genre fetch complete');
+      }
+    });
+  }
 }

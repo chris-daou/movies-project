@@ -42,7 +42,7 @@ a {
 #genres_menu {
     display: flex;
     flex-direction: column;
-    width: 15%;
+    width: 100%;
     background-color: rgb(209, 209, 188);
     justify-content: space-between;
     align-self: stretch;
@@ -50,6 +50,7 @@ a {
     border-radius: 20px;
     list-style-type: none;
     padding: 15px;
+    margin-right: 100px;
 
 }
 
