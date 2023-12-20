@@ -1,0 +1,40 @@
+.main_container {
+  display: flex;
+  width: 95%;
+  margin: auto;
+  gap: 2%;
+  height: 80vh;
+}
+
+h2,
+h1,
+h3 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: small;
+  color: brown;
+}
+
+h1 {
+
+  text-align: center;
+  padding: 30px;
+  font-size: larger;
+}
+
+h2 {
+  height: 40px;
+}
+
+h3 {
+  font-size: xx-small;
+  margin-top: 7px;
+  color: rgb(156, 96, 96);
+}
+
+li,
+a {
+  margin: 7px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: brown;
+  text-decoration: none;
+}

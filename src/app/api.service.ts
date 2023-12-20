@@ -18,10 +18,12 @@ export class ApiService {
   }
 
   getFilms(genre:number, pagenum:number): Observable<any> {
+    console.log(genre);
+    console.log(pagenum);
     const headers = new HttpHeaders({
       Authorization: `Bearer ${this.apiKey}`
     });
-    
+
     const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page='+pagenum+'&sort_by=popularity.desc&with_genres='+genre;
     return this.http.get(url, { headers });
   }

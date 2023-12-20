@@ -18,12 +18,14 @@ export class FilmsComponent implements OnInit{
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit() {
+    console.log("hello" + this.route);
     this.route.params.subscribe(params=>{
-      this.genre=params['genre'];
-      this.pagenum=params['page'];})
-
+      this.genre = +params['genre'];
+      this.pagenum = +params['page'];
+    console.log(this.genre);
+    console.log(this.pagenum);})
     console.log("Initialization of FilmsComponent");
-    
+
 
     this.apiService.getFilms(this.genre,this.pagenum).subscribe({
       next: (response) => {
