@@ -49,8 +49,13 @@ export class DetailComponent {
         console.log('Film details fetch complete');
       }
     });
+    const favicon = document.getElementById('favoritesIcon');
+    const favorites = this.favoritesService.initializeFavorites();
+    if (favorites.includes(this.id)) {
+      favicon?.classList.add('favorited');
+    }
   }
-  
+
   toggleFavorite(): void {
     const favoritesIcon = document.getElementById('favoritesIcon');
 
@@ -60,16 +65,13 @@ export class DetailComponent {
     // Use Angular Renderer to update the class
     if (this.isFavorite) {
       favoritesIcon?.classList.add('favorited');
+      this.addToFavorite(this.id);
     } else {
       favoritesIcon?.classList.remove('favorited');
-    }
-
-    // Call the addToFavorite function if needed
-    if (this.isFavorite) {
-      this.addToFavorite(this.id);
+      this.removeFromFavorite(this.id);
     }
   }
-  
+
   addToFavorite(id: number): void {
     console.log("add to favorite");
     const favorites = this.favoritesService.initializeFavorites();
@@ -83,4 +85,18 @@ export class DetailComponent {
     console.log("Current favorites:", this.favoritesService.initializeFavorites());
   }
 
+  removeFromFavorite(id: number): void {
+    console.log("remove from favorite");
+    const favorites = this.favoritesService.initializeFavorites();
+    if (favorites.includes(id)) {
+      const index = favorites.indexOf(id);
+      favorites.splice(index, 1);
+      this.favoritesService.updateFavorites(favorites);
+      console.log("Item removed from favorites:", id);
+    } else {
+      console.log("Item is not in favorites:", id);
+    }
+    console.log("Current favorites:", this.favoritesService.initializeFavorites());
+
   }
+}
