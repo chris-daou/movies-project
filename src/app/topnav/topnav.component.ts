@@ -18,5 +18,11 @@ export class TopnavComponent {
       window.location.reload();
     });
   }
+  Popular(event:Event){
+    event.preventDefault();
+    this.router.navigate(['popular']).then(() => {
+      window.location.reload();
+    });
+  }
 
 }
