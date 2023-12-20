@@ -5,9 +5,23 @@
 <body>
     <h1> API: themoviedb.org</h1>
     <div class="main_container">
-        <app-genre-menu></app-genre-menu>
-        <app-films></app-films>
-        <app-navbar></app-navbar>
+      <div class="container">
+        <div class="row">
+          <app-topnav></app-topnav>
+        </div>
+        <div class="row">
+          <div class="col">
+            <app-genre-menu></app-genre-menu>
+          </div>
+          <div class="col">
+            <app-films></app-films>
+          </div>
+        </div>
+        <div class="row">
+          <app-navbar></app-navbar>
+        </div>
+      </div>
+
     </div>
 
 </body>
