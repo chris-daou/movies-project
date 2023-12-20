@@ -14,7 +14,8 @@ export class NavbarComponent {
   pagenum: number = 1;
   constructor(private route: ActivatedRoute, private router: Router) {}
 
-  goToPrevious(){
+  goToPrevious(event: Event){
+    event.preventDefault();
     this.route.params.subscribe(params=>{
       this.genre = +params['genre'];
       this.pagenum = +params['page'];})
@@ -27,7 +28,8 @@ export class NavbarComponent {
     });
   }
 
-goToNext(){
+goToNext(event: Event){
+  event.preventDefault();
   this.route.params.subscribe(params => {
     this.genre = +params['genre'];
     this.pagenum = +params['page'];
