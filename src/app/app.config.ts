@@ -4,7 +4,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideHttpClient(), CookieService]
+  providers: [provideRouter(routes), provideHttpClient(), CookieService, ReactiveFormsModule, FormsModule]
 };

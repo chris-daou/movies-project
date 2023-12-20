@@ -5,12 +5,12 @@
     <li class="navbar-item"><a href="#" class="navbar-link" (click)="Popular($event)">Popular</a></li>
     <li class="navbar-item"><a href="#" class="navbar-link" (click)="TopRated($event)">Top Rated</a></li>
     <li class="navbar-item"><a href="#" class="navbar-link" (click)="Upcoming($event)">Upcoming</a></li>
-    <li class="navbar-item"><a href="#" class="navbar-link" (click)="Favorites($event)">Favorites</a></li>
+    <li class="navbar-item"><a href="#" class="navbar-link" (click)="Upcoming($event)">Favorites</a></li>
   </ul>
   <div class="navbar-search">
-    <input type="text" class="search-input" placeholder="Search">
-    <button class="search-button">Search</button>
+    <form (ngSubmit)="Search($event)">
+      <input type="text" id="textInput" name="textInput" [(ngModel)]="searchText">
+      <button type="submit">Submit</button>
+    </form>
   </div>
 </nav>
-
-

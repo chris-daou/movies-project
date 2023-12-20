@@ -7,6 +7,7 @@ import { PopularComponent } from './popular/popular.component';
 import { TopratedComponent } from './toprated/toprated.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
 import { FavComponent } from './fav/fav.component';
+import { SearchComponent } from './search/search.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home/28/1', pathMatch: 'full' },
@@ -16,5 +17,6 @@ export const routes: Routes = [
   {path: 'popular', component: PopularComponent},
   {path: 'toprated', component: TopratedComponent},
   {path: 'upcoming', component: UpcomingComponent},
-  {path: 'favorites', component: FavComponent}
+  {path: 'favorites', component: FavComponent},
+  {path: 'search/:query/:page', component: SearchComponent},
 ];

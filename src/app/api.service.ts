@@ -81,4 +81,13 @@ export class ApiService {
     const url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
     return this.http.get(url, { headers });
   }
+
+  search(query: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.apiKey}`
+    });
+
+    const url = 'https://api.themoviedb.org/3/search/movie?query='+query+'&include_adult=false&language=en-US&page=1';
+    return this.http.get(url, { headers });
+  }
 }

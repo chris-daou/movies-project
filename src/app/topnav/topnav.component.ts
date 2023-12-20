@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-topnav',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './topnav.component.html',
   styleUrl: './topnav.component.css'
 })
 export class TopnavComponent {
+  searchText: string = '';
 
   constructor(private router: Router) {}
 
@@ -41,6 +43,12 @@ export class TopnavComponent {
   Favorites(event:Event){
     event.preventDefault();
     this.router.navigate(['favorites']).then(() => {
+      window.location.reload();
+    });
+  }
+  Search(event:Event){
+    event.preventDefault();
+    this.router.navigate(['search', this.searchText,1]).then(() => {
       window.location.reload();
     });
   }
