@@ -6,7 +6,7 @@ body {
 }
 
 .container-expanded {
-  max-width: 1000px; /* Adjusted width for better fit */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -18,13 +18,13 @@ body {
 }
 
 .movie-poster {
-  flex: 0 0 300px; /* Increased poster width */
+  flex: 0 0 300px;
   margin-right: 20px;
 }
 
 .movie-poster img {
-  width: 100%; /* Maintain responsiveness */
-  max-width: 800px; /* Limit maximum width */
+  width: 100%;
+  max-width: 800px;
   height: auto;
 }
 
@@ -50,4 +50,17 @@ body {
 
 .movie-casts {
   font-weight: bold;
+}
+
+.favorites-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  color: black; /* Initial color */
+  cursor: pointer;
+}
+
+.favorites-icon.clicked {
+  color: red; /* Color when clicked */
 }

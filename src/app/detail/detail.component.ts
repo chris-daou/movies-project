@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from '@angular/router';
+import { FavoritesService } from '../cookie.service';
 
 @Component({
   selector: 'app-detail',
@@ -15,7 +16,7 @@ export class DetailComponent {
   id: number = 0;
   credits: String[] = [];
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private favoritesService: FavoritesService) {}
 
   ngOnInit() {
     this.route.params.subscribe(params=>{
@@ -48,4 +49,17 @@ export class DetailComponent {
       }
     });
   }
-}
+  addToFavorite(id: number): void {
+    console.log("add to favorite");
+    const favorites = this.favoritesService.initializeFavorites();
+    if (!favorites.includes(id)) {
+      favorites.push(id);
+      this.favoritesService.updateFavorites(favorites);
+      console.log("Item added to favorites:", id);
+    } else {
+      console.log("Item is already in favorites:", id);
+    }
+    console.log("Current favorites:", this.favoritesService.initializeFavorites());
+  }
+
+  }

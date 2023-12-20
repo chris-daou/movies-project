@@ -38,4 +38,11 @@ export class TopnavComponent {
     });
   }
 
+  Favorites(event:Event){
+    event.preventDefault();
+    this.router.navigate(['favorites']).then(() => {
+      window.location.reload();
+    });
+  }
+
 }
