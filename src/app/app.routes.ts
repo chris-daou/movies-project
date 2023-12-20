@@ -4,11 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { DetailComponent } from './detail/detail.component';
 import { NowplayingComponent } from './nowplaying/nowplaying.component';
 import { PopularComponent } from './popular/popular.component';
+import { TopratedComponent } from './toprated/toprated.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home/28/1', pathMatch: 'full' },
   {path: 'home/:genre/:page', component: HomeComponent},
   {path: 'movie/:id', component: DetailComponent},
   {path: 'nowplaying', component: NowplayingComponent},
-  {path: 'popular', component: PopularComponent}
+  {path: 'popular', component: PopularComponent},
+  {path: 'toprated', component: TopratedComponent}
 ];

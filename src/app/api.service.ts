@@ -63,4 +63,13 @@ export class ApiService {
     const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
     return this.http.get(url, { headers });
   }
+
+  getToprated(): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.apiKey}`
+    });
+
+    const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1';
+    return this.http.get(url, { headers });
+  }
 }

@@ -24,5 +24,11 @@ export class TopnavComponent {
       window.location.reload();
     });
   }
+  TopRated(event:Event){
+    event.preventDefault();
+    this.router.navigate(['toprated']).then(() => {
+      window.location.reload();
+    });
+  }
 
 }
