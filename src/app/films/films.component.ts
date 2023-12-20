@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-films',
@@ -15,7 +16,7 @@ export class FilmsComponent implements OnInit{
   genre: number = 0;
   pagenum: number = 1;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     console.log("hello" + this.route);
@@ -40,4 +41,11 @@ export class FilmsComponent implements OnInit{
       }
     });
   }
+
+  goToFilmDetails(id: Number) {
+    console.log('Go to film details: ', id);
+    this.router.navigate(['movie', id]).then(() => {
+      window.location.reload();
+  });
+}
 }

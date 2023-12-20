@@ -27,4 +27,22 @@ export class ApiService {
     const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page='+pagenum+'&sort_by=popularity.desc&with_genres='+genre;
     return this.http.get(url, { headers });
   }
+
+  getFilmDetails(id: number): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.apiKey}`
+    });
+
+    const url = 'https://api.themoviedb.org/3/movie/'+id+"?language=en-US";
+    return this.http.get(url, { headers });
+  }
+
+  getFilmCredits(id: number): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.apiKey}`
+    });
+
+    const url = 'https://api.themoviedb.org/3/movie/'+id+'/credits?language-en-US';
+    return this.http.get(url, { headers });
+  }
 }
