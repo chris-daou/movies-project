@@ -61,6 +61,6 @@ body {
   cursor: pointer;
 }
 
-.favorites-icon.clicked {
-  color: red; /* Color when clicked */
+.favorites-icon.favorited {
+  color: red; /* Color when favorited */
 }

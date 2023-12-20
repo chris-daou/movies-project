@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie Details</title>
+  
 </head>
 <body>
   <div class="container-expanded">
@@ -19,6 +20,13 @@
       </div>
     </div>
   </div>
-  <div class="favorites-icon" id="favoritesIcon" (click)="addToFavorite(details?.id)">&#10084;</div>
+  <div class="favorites-icon" id="favoritesIcon" (click)="toggleFavorite()">&#10084;</div>
+
+  <script>
+    function toggleFavorite() {
+      var favoritesIcon = document.getElementById('favoritesIcon');
+      favoritesIcon.classList.toggle('favorited');
+    }
+  </script>
 </body>
 </html>

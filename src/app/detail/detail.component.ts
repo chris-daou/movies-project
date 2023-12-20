@@ -15,6 +15,7 @@ export class DetailComponent {
   details: any;
   id: number = 0;
   credits: String[] = [];
+  isFavorite: boolean = false;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private favoritesService: FavoritesService) {}
 
@@ -49,6 +50,26 @@ export class DetailComponent {
       }
     });
   }
+  
+  toggleFavorite(): void {
+    const favoritesIcon = document.getElementById('favoritesIcon');
+
+    // Toggle the 'favorited' class
+    this.isFavorite = !this.isFavorite;
+
+    // Use Angular Renderer to update the class
+    if (this.isFavorite) {
+      favoritesIcon?.classList.add('favorited');
+    } else {
+      favoritesIcon?.classList.remove('favorited');
+    }
+
+    // Call the addToFavorite function if needed
+    if (this.isFavorite) {
+      this.addToFavorite(this.id);
+    }
+  }
+  
   addToFavorite(id: number): void {
     console.log("add to favorite");
     const favorites = this.favoritesService.initializeFavorites();
