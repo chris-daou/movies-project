@@ -31,4 +31,11 @@ export class TopnavComponent {
     });
   }
 
+  Upcoming(event:Event){
+    event.preventDefault();
+    this.router.navigate(['upcoming']).then(() => {
+      window.location.reload();
+    });
+  }
+
 }
